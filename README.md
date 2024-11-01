@@ -1,6 +1,8 @@
 <br>
+<p align="center">
 <img src="./resources/assets/logotype/svg/classydog-hoz-positive.svg" alt="Classydog Logo"
 style="width: 450px; margin: 0 auto; display: block;"/>
+</p>
 <br>
 
 # Classydog
