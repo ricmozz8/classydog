@@ -52,4 +52,4 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
-        run: php artisan test --exclude-group rendering
+        run: php artisan test
