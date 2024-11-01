@@ -1,5 +1,5 @@
 <br>
-<img src="./resources/assets/logotype/svg/classydog-hoz-negative.svg" alt="Classydog Logo"
+<img src="./resources/assets/logotype/svg/classydog-hoz-positive.svg" alt="Classydog Logo"
 style="width: 450px; margin: 0 auto; display: block;"/>
 <br>
 
