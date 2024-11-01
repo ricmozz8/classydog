@@ -10,9 +10,7 @@ class ProfileTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @group rendering
-     */
+
     public function test_profile_page_is_displayed(): void
     {
         $user = User::factory()->create();
