@@ -1,5 +1,7 @@
-
-
+<br>
+<img src="./resources/assets/logotype/svg/classydog-hoz-positive.svg" alt="Classydog Logo"
+style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">
+<br>
 
 # Classydog
 An app for selling second hand items. With direct connection between sellers and buyers (Direct Messaging, Order Tracking).
