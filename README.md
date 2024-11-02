@@ -5,8 +5,13 @@ style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">
 </p>
 <br>
 
-# Classydog
-An app for selling second hand items. With direct connection between sellers and buyers (Direct Messaging, Order Tracking).
+
+An app for **selling second hand items**. With direct connection between sellers and buyers (Direct Messaging, Order Tracking and more).
+
+<p align="center">
+<img src="./resources/assets/promotional/promo-wire-land.webp" alt="Classydog Logo"
+style="width: 170%;  margin: 0 auto; display: block;">
+</p>
 
 ## Requirements
 In order to run the project, you must have **Composer, NodeJS and PHP (8.2 minimum)** installed. You may do so by
