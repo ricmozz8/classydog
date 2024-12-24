@@ -1,15 +1,19 @@
+import FullLogotype from "@/Components/FullLogotype";
 import { Head, Link } from "@inertiajs/react";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 ">
-                <nav className="mx-3 flex flex-1 justify-end text-black">
+            <div className="flex flex-col items-center justify-center min-h-screen bg-black ">
+
+                <FullLogotype className="w-64 h-32 block m-0 p-0" />
+                <h1 className="text-6xl font-bold text-white">Under Construction</h1>
+                <nav className="mx-5 flex flex-1 justify-end text-black">
                     {auth.user ? (
                         <Link
                             href={route("dashboard")}
-                            className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            className="text-white focus:outline-none bg-classydog-500 font-semibold w-fit block rounded-full p-4 h-fit cursor-pointer hover:bg-classydog-700 transition-colors"
                         >
                             Dashboard
                         </Link>
@@ -17,13 +21,13 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         <>
                             <Link
                                 href={route("login")}
-                                className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                className="text-white focus:outline-none"
                             >
                                 Log in
                             </Link>
                             <Link
                                 href={route("register")}
-                                className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                className="text-white focus:outline-none"
                             >
                                 Register
                             </Link>
