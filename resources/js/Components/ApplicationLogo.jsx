@@ -1,12 +1,17 @@
+import Logo from '../../assets/logotype/svg/classydog-geo-iso-purple.svg';
+
 export default function ApplicationLogo(props) {
     return (
-        <svg
+        <img
+            src={Logo}
+
+            alt="Classydog Logo"
             {...props}
             width="100%"
             height="100%"
             viewBox="0 0 92 93"
             style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}
-            
+
         >
             <g transform="matrix(1,0,0,1,-5910,-744)">
                 <g transform="matrix(1,0,0,1,4690.74,0)">
