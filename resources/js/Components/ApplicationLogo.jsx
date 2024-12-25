@@ -1,10 +1,8 @@
-import Logo from '../../assets/logotype/svg/classydog-geo-iso-purple.svg';
+
 
 export default function ApplicationLogo(props) {
     return (
-        <img
-            src={Logo}
-
+        <svg
             alt="Classydog Logo"
             {...props}
             width="100%"
