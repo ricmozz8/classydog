@@ -16,7 +16,7 @@ export default {
                 sans: ['Bricolage Grotesque', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: {
+                classydog: {
                     50: '#fdba74',
                     100: '#7249a5',
                     200: '#623099',
