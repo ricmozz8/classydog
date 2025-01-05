@@ -6,3 +6,31 @@
 ::selection{
     background-color: #52108c1e;
 }
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #52108c1e;
+    border-radius: 35px;
+    cursor: grab;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #52108c1e;
+    border-radius: 35px;
+}
+
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+   /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+  }
+}
