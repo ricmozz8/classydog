@@ -7,7 +7,6 @@ import LoginModal from "@/Components/LoginModal";
 
 import { useState } from "react";
 
-
 export default function NavBar({ auth }) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +30,11 @@ export default function NavBar({ auth }) {
                         <i className="las la-user"></i>
                         Inicia Sesión o Registrate
                     </SecondaryButton>
-                    <PrimaryButton>
+                    <PrimaryButton
+                        onClick={() => {
+                            toggleModal();
+                        }}
+                    >
                         <i className="las la-plus"></i>
                         Vende
                     </PrimaryButton>
