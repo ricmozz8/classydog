@@ -1,12 +1,18 @@
 import PrimaryButton from "./PrimaryButton";
 import TertiaryButton from "./TertiaryButton";
 import Input from "./Input";
+import { Link } from "@inertiajs/react";
 
 import GenericModal from "./GenericModal";
 import Separator from "./Separator";
-export default function LoginModal({show, onclose, ...params }) {
+export default function LoginModal({ show, onclose, ...params }) {
     return (
-        <GenericModal title='Inicia Sesión' show={show} onclose={onclose} {...params}>
+        <GenericModal
+            title="Inicia Sesión"
+            show={show}
+            onclose={onclose}
+            {...params}
+        >
             <form action="#" method="POST" className="select-none">
                 <div className="p-6 flex-col gap-4">
                     <Input
@@ -25,10 +31,12 @@ export default function LoginModal({show, onclose, ...params }) {
                         placeholder="*********"
                     />
                 </div>
-                <Separator/>
+                <Separator />
 
                 <div className="md:flex md:justify-between m-auto p-6">
-                    <TertiaryButton>¿No tienes Cuenta?</TertiaryButton>
+                    <Link href={route("register")}>
+                        <TertiaryButton>¿No tienes Cuenta?</TertiaryButton>
+                    </Link>
 
                     <PrimaryButton>
                         <i className="las la-arrow-right"></i>
