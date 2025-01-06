@@ -4,7 +4,7 @@ import ScrollButtons from "./ScrollButtons";
 
 export default function MainCategorySelector({ title, content, allRoute, id }) {
     return (
-        <div className="flex-col m-6 max-h-screen">
+        <div className="flex-col max-h-screen m-6 xl:mx-0">
             <div className="md:flex items-center align-middle justify-between py-4">
                 <h1 className="text-3xl font-semibold flex items-center justify-between gap-2">
                     {title}
@@ -35,6 +35,7 @@ export default function MainCategorySelector({ title, content, allRoute, id }) {
                                 className="min-w-[300px] h-[500px] object-cover rounded-md hover:brightness-75 transition-all "
                                 src={item.image}
                                 alt={item.title}
+                                draggable={false}
                             />
                             <h1 className="text-2xl font-semibold">
                                 {item.title}

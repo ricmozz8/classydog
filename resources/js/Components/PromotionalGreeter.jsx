@@ -1,17 +1,15 @@
 export default function PromotionalGreeter(params) {
     return (
-
-            <img
-                src={route("ad.active")}
-                alt="Promotional Image"
-                className={`
+        <img
+            src={route("ad.active")}
+            alt="Promotional Image"
+            draggable={false}
+            className={`
             hidden md:block
-            my-4  mx-auto object-contain
-            h-[350px] w-full cursor-pointer hover:brightness-75
+            my-4 rounded-md mx-auto object-contain
+            h-[350px] w-full
             transition-all lg:object-cover
         `}
-            />
-
-        
+        />
     );
 }

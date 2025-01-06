@@ -1,7 +1,7 @@
-import NavBar from "@/Components/NavBar";
+import Layout from "@/Layouts/Layout";
 import PromotionalGreeter from "@/Components/PromotionalGreeter";
 import MainCategorySelector from "@/Components/MainCategorySelector";
-import { Head, Link } from "@inertiajs/react";
+
 
 // model the data for the categories
 const categories = [
@@ -81,9 +81,7 @@ const categories = [
 
 export default function Landing({ auth, laravelVersion, phpVersion }) {
     return (
-        <main className="max-w-[1440px] m-auto">
-            <Head title="Inicio"></Head>
-            <NavBar></NavBar>
+        <Layout pageTitle='Inicio' auth={auth}>
             <PromotionalGreeter />
 
             {categories.map((category, index) => {
@@ -97,6 +95,6 @@ export default function Landing({ auth, laravelVersion, phpVersion }) {
                     />
                 );
             })}
-        </main>
+        </Layout>
     );
 }
