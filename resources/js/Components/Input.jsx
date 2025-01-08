@@ -1,6 +1,6 @@
 import InputLabel from "./InputLabel";
 import InputError from "./InputError";
-export default function Input({ title, type, name, className = "", ...props }) {
+export default function Input({ title, type, name, className = "", error, ...props }) {
     return (
         <div className="flex flex-col gap-2 my-4">
             <InputLabel>{title}</InputLabel>
@@ -14,7 +14,7 @@ export default function Input({ title, type, name, className = "", ...props }) {
                 name={name}
                 {...props}
             />
-            <InputError />
+            <InputError  message={error} />
         </div>
     );
 }

@@ -3,7 +3,7 @@ import FullLogotype from "@/Components/FullLogotype";
 import SearchBar from "@/Components/SearchBar";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import LoginModal from "@/Components/LoginModal";
+import AuthModal from "@/Components/AuthModal";
 
 import { useState } from "react";
 
@@ -40,7 +40,7 @@ export default function NavBar({ auth }) {
                     </PrimaryButton>
                 </div>
             </nav>
-            <LoginModal show={isOpen} onclose={toggleModal} />
+            <AuthModal mode="login" show={isOpen} onclose={toggleModal} />
         </>
     );
 }

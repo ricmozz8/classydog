@@ -14,18 +14,13 @@ export default function FullLogotype({variant = 'positive', width = '150px', ...
         logoFill = params.variant
     }
 
-    console.log('Logotype variant: ' + params.variant);
-
     return (
         <svg
             {...params}
             width={width}
             viewBox="0 0 1310 233"
             version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xml:space="preserve"
-            xmlns:serif="http://www.serif.com/"
+            xmlSpace="preserve"
             style={{
                 fillRule: "evenodd",
                 clipRule: "evenodd",

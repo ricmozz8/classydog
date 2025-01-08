@@ -18,7 +18,6 @@ Route::get('/', function () {
 
 Route::get('/active_ad', function() {
    $image = public_path('/active_ads/promotional.png');
-
    return response()->file($image);
 })->name('ad.active');
 
