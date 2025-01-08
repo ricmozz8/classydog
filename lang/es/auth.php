@@ -15,6 +15,6 @@ return [
 
     'failed' => 'No se ha encontrado una cuenta con esas credenciales.',
     'password' => 'Contraseña incorrecta.',
-    'throttle' => 'Muchos intentos de inicio de sesión. Por favor, intente de nuevo en  :seconds segundos.',
+    'throttle' => 'Muchos intentos de inicio de sesión. Por favor, intente de nuevo en :seconds segundos.',
 
 ];
