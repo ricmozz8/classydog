@@ -1,7 +1,7 @@
 import Layout from "@/Layouts/Layout";
 import PromotionalGreeter from "@/Components/PromotionalGreeter";
 import MainCategorySelector from "@/Components/MainCategorySelector";
-
+import AdminToolbar from "@/Components/AdminToolbar";
 
 // model the data for the categories
 const categories = [
@@ -82,6 +82,7 @@ const categories = [
 export default function Landing({ auth, laravelVersion, phpVersion }) {
     return (
         <Layout pageTitle='Inicio' auth={auth}>
+            
             <PromotionalGreeter />
 
             {categories.map((category, index) => {
