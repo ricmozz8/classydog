@@ -67,7 +67,7 @@ export default function LoginForm({ onChangeMode, ...params }) {
                     Entrar
                 </PrimaryButton>
             </div>
-            <div className="p-6 text-center m-auto">
+            <div className="p-6 text-center m-auto bg-gray-100">
                 <TertiaryButton>¿Olvidaste la contraseña?</TertiaryButton>
             </div>
         </form>

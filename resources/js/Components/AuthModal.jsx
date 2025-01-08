@@ -29,6 +29,13 @@ export default function AuthModal({
 
     }
 
+    const handleClose = () => {
+        onclose()
+        
+        setAuthMode('login');
+        setTitle('Inicia Sesión');
+    }
+
     const form =
         authMode === "login" ? (
             <LoginForm
@@ -45,7 +52,7 @@ export default function AuthModal({
             className="w-1/2 transition-all"
             title={title}
             show={show}
-            onclose={onclose}
+            onclose={handleClose}
             {...params}
         >
             {form}

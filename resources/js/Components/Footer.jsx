@@ -9,6 +9,7 @@ export default function Footer(params) {
                 <div className="mt-10">
                     <p>Todos los derechos reservados</p>
                     <p> Classydog | &copy;{currentYear}</p>
+                    <span className="font-mono font-thin text-yellow-300">v0.0.0 | DEVELOPMENT</span>
                 </div>
             </div>
         </div>

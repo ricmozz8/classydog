@@ -19,6 +19,7 @@ export default function NavBar({ auth }) {
             <nav className=" hidden sticky bg-white top-0 p-6 m-auto md:flex align-middle items-center justify-between z-10  border-b border-gray-300">
                 <Link href="/">
                     <FullLogotype variant="positive" />
+                    
                 </Link>
                 <SearchBar className="flex-1 mx-20" method="POST" action="#" />
                 <div className="flex items-center space-x-4">
@@ -28,7 +29,7 @@ export default function NavBar({ auth }) {
                         }}
                     >
                         <i className="las la-user"></i>
-                        Inicia Sesión o Registrate
+                        Entra
                     </SecondaryButton>
                     <PrimaryButton
                         onClick={() => {
