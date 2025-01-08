@@ -47,7 +47,7 @@ export default function LoginForm({ onChangeMode, ...params }) {
                     type="password"
                     title="Contraseña"
                     name="password"
-                    autocomplete="current-password"
+                    autoComplete="current-password"
                     required
                     placeholder="*********"
                     value={data.password}
@@ -62,7 +62,7 @@ export default function LoginForm({ onChangeMode, ...params }) {
                     ¿No tienes Cuenta?
                 </TertiaryButton>
 
-                <PrimaryButton>
+                <PrimaryButton disabled={processing}>
                     <i className="las la-arrow-right"></i>
                     Entrar
                 </PrimaryButton>
