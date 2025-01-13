@@ -2,6 +2,7 @@ import Layout from "@/Layouts/Layout";
 import PromotionalGreeter from "@/Components/PromotionalGreeter";
 import MainCategorySelector from "@/Components/MainCategorySelector";
 import AdminToolbar from "@/Components/AdminToolbar";
+import { router } from "@inertiajs/react";
 
 // model the data for the categories
 const categories = [
@@ -82,7 +83,7 @@ const categories = [
 export default function Landing({ auth, laravelVersion, phpVersion }) {
     return (
         <Layout pageTitle='Inicio' auth={auth}>
-            
+            <pre className="p-3 cursor-pointer border w-fit my-3" onClick={() => {router.post('/logout')}}>LOGOUT</pre>
             <PromotionalGreeter />
 
             {categories.map((category, index) => {

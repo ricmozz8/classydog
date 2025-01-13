@@ -8,7 +8,7 @@ import { router, useForm } from "@inertiajs/react";
 
 
 
-export default function LoginForm({ onChangeMode, ...params }) {
+export default function LoginForm({ onChangeMode, onClose, ...params }) {
 
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -20,6 +20,7 @@ export default function LoginForm({ onChangeMode, ...params }) {
         e.preventDefault();
         post(route('login'), {
             onFinish: () => reset('password'),
+            onSuccess: () => onClose()
         })
     }
 

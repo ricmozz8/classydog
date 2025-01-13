@@ -4,7 +4,7 @@ import ScrollButtons from "./ScrollButtons";
 
 export default function MainCategorySelector({ title, content, allRoute, id }) {
     return (
-        <div className="flex-col max-h-screen m-6 xl:mx-0">
+        <div className="flex-col max-h-screen m-6 2xl:mx-0">
             <div className="md:flex items-center align-middle justify-between py-4">
                 <h1 className="text-3xl font-semibold flex items-center justify-between gap-2">
                     {title}

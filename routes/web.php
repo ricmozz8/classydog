@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -14,14 +17,22 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 
+// Route::get('/fakeuser', function(){
+//     User::factory()->create();
+
+//     return response()->json(['result' => 200]);
+// });
 
 
 Route::get('/active_ad', function() {
    $image = public_path('/active_ads/promotional.png');
    return response()->file($image);
 })->name('ad.active');
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

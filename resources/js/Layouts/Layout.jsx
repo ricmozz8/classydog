@@ -14,9 +14,9 @@ import Footer from "@/Components/Footer";
 export default function Layout({ auth, pageTitle, children, ...params }) {
     return (
         <>
-            <main {...params} className="max-w-screen-xl m-auto">
+            <main {...params} className="max-w-screen-2xl m-auto">
                 <Head title={pageTitle}></Head>
-                <NavBar></NavBar>
+                <NavBar auth={auth}></NavBar>
                 {children}
             </main>
             <Footer />

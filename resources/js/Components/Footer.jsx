@@ -4,7 +4,7 @@ export default function Footer(params) {
 
     return (
         <div className="bg-classydog-main py-4 px-2 text-white m-0">
-            <div className="max-w-screen-xl m-auto p-6">
+            <div className="max-w-screen-2xl m-auto p-6">
                 <FullLogotype variant="negative" />
                 <div className="mt-10">
                     <p>Todos los derechos reservados</p>

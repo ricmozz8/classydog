@@ -12,7 +12,7 @@ export default function AuthModal({
 }) {
     const [authMode, setAuthMode] = useState(mode);
 
-    let [title, setTitle] = useState("Inicia Sesión");
+    let [title, setTitle] = useState(mode === 'login' ? "Inicia Sesión" : "Regístrate");
 
     /**
      * Toggles the authentication mode between login and register.
@@ -20,7 +20,7 @@ export default function AuthModal({
      */
     const changeAuthMode = () => {
         setAuthMode(authMode === "login" ? "register" : "login");
-        setTitle(authMode === "login" ? "Registrate" : "Inicia Sesión");
+        setTitle(authMode === "login" ? "Regístrate" : "Inicia Sesión");
     };
 
 
@@ -31,7 +31,7 @@ export default function AuthModal({
 
     const handleClose = () => {
         onclose()
-        
+
         setAuthMode('login');
         setTitle('Inicia Sesión');
     }
@@ -40,10 +40,12 @@ export default function AuthModal({
         authMode === "login" ? (
             <LoginForm
                 onChangeMode={changeAuthMode}
+                onClose={handleClose}
             />
         ) : (
             <RegisterForm
                 onChangeMode={changeAuthMode}
+                onClose={handleClose}
             />
         );
 

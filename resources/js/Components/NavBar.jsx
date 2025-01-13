@@ -4,6 +4,7 @@ import SearchBar from "@/Components/SearchBar";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 import AuthModal from "@/Components/AuthModal";
+import { router } from "@inertiajs/react";
 
 import { useState } from "react";
 
@@ -14,31 +15,51 @@ export default function NavBar({ auth }) {
         setIsOpen(!isOpen);
     };
 
+    const mainAction = (
+        <PrimaryButton>
+            <i className="las la-plus"></i>
+            Vende
+        </PrimaryButton>
+    );
+
     return (
         <>
             <nav className=" hidden sticky bg-white top-0 p-6 m-auto md:flex align-middle items-center justify-between z-10  border-b border-gray-300">
                 <Link href="/">
                     <FullLogotype variant="positive" />
-                    
+
                 </Link>
                 <SearchBar className="flex-1 mx-20" method="POST" action="#" />
                 <div className="flex items-center space-x-4">
-                    <SecondaryButton
-                        onClick={() => {
-                            toggleModal();
-                        }}
-                    >
-                        <i className="las la-user"></i>
-                        Entra
-                    </SecondaryButton>
-                    <PrimaryButton
-                        onClick={() => {
-                            toggleModal();
-                        }}
-                    >
-                        <i className="las la-plus"></i>
-                        Vende
-                    </PrimaryButton>
+
+                    {auth.user !== null ? (
+                        <Link href="/profile" className="flex items-center border border-classydog-main p-2 rounded-full text-classydog-main hover:bg-gray-100 transition-colors">
+                            <i className="las la-user"></i>
+                            <p>{auth.user.name}</p>
+                        </Link>
+
+                    ) :
+                        (
+                            <SecondaryButton onClick={() => { toggleModal(); }}>
+                                <i className="las la-user"></i>
+                                Entra
+                            </SecondaryButton>
+                        )}
+
+
+                    {auth.user === null ? (
+                        <span onClick={() => { toggleModal(); }}>
+                            {mainAction}
+                        </span>
+                    ) : (
+                        <Link href="/sell">
+                            {mainAction}
+                        </Link>
+                    )}
+
+
+
+
                 </div>
             </nav>
             <AuthModal mode="login" show={isOpen} onclose={toggleModal} />
