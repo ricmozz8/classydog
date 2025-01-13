@@ -22,14 +22,14 @@ export default function RegisterForm({
                     type="text"
                     name="login-modal-name"
                     required
-                    placeholder="Juan Lopez"
+                    placeholder="Tu Nombre"
                 />
                 <Input
                     title="Correo"
                     type="email"
                     name="login-modal-email"
                     required
-                    placeholder="juan@ejemplo.com"
+                    placeholder="nombre@ejemplo.com"
                 />
 
                 <Input

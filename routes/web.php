@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Database\Factories\UserFactory;
 
 Route::get('/', function () {
     return Inertia::render('Landing', [
@@ -14,6 +15,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 
 
 Route::get('/active_ad', function() {

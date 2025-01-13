@@ -37,7 +37,7 @@ export default function LoginForm({ onChangeMode, ...params }) {
                     type="email"
                     name="login-modal-email"
                     required
-                    placeholder="juan@ejemplo.com"
+                    placeholder="nombre@ejemplo.com"
                     value={data.email}
                     onChange={(e) => setData('email', e.target.value)}
                     error={errors.email}
