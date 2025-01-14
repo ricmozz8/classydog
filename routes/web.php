@@ -33,6 +33,7 @@ Route::get('/active_ad', function() {
 
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/p/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

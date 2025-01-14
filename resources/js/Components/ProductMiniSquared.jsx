@@ -15,7 +15,7 @@ export default function ProductMiniSquared({ product }) {
 // href={route('', product.id)}
     const prettyPrice = '$' + product.price.toFixed(2);
     return (
-        <Link  >
+        <Link href={route('products.show', product.id)}>
             <div className=" max-w-52 flex-col items-center justify-center cursor-pointer  transition-colors">
                 <img className="w-full object-cover rounded-lg" src='https://picsum.photos/900' alt={product.name} />
                 <div className="py-3">
