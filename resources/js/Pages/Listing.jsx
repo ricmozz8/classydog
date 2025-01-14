@@ -3,7 +3,7 @@ import ProductListingGrid from "@/Components/ProductListingGrid";
 export default function Listing({products, categories, auth}) {
 
     return (
-        <Layout auth={auth}>
+        <Layout pageTitle='Productos' auth={auth}>
             <div className="flex   items-start my-4  space-around gap-3">
 
                 {/* filter category selector sidebar */}
