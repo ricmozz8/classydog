@@ -11,7 +11,7 @@ export default function Listing({products, auth}) {
                 <MainFilterSidebar filters={{'categories': [usePage().props.availableCategories.popular]}} />
                 <div className=" h-full py-6 w-full">
                     <h1 className="text-3xl font-semibold">Todos los productos</h1>
-                    <ProductListingGrid products={products} pagination={10}/>
+                    <ProductListingGrid products={products} pagination={12}/>
                 </div>
 
 
