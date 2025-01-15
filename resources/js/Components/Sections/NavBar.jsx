@@ -1,10 +1,9 @@
 import { Link } from "@inertiajs/react";
-import FullLogotype from "@/Components/FullLogotype";
-import SearchBar from "@/Components/SearchBar";
-import PrimaryButton from "./PrimaryButton";
-import SecondaryButton from "./SecondaryButton";
-import AuthModal from "@/Components/AuthModal";
-import { router } from "@inertiajs/react";
+import FullLogotype from "@/Components/Branding/FullLogotype";
+import SearchBar from "@/Components/Sections/SearchBar";
+import PrimaryButton from "@/Components/Buttons/PrimaryButton";
+import SecondaryButton from "@/Components/Buttons/SecondaryButton";
+import AuthModal from "@/Components/Modals/AuthModal";
 
 import { useState } from "react";
 
@@ -24,7 +23,7 @@ export default function NavBar({ auth }) {
 
     return (
         <>
-            <nav className=" hidden sticky bg-white top-0 p-6 m-auto md:flex align-middle items-center justify-between z-10  border-b border-gray-300">
+            <nav className=" hidden sticky bg-white top-0 p-3 m-auto md:flex align-middle items-center justify-between z-10  border-b border-gray-300">
                 <Link href="/">
                     <FullLogotype variant="positive" />
 

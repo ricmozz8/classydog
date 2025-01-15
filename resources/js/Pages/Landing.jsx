@@ -1,7 +1,6 @@
 import Layout from "@/Layouts/Layout";
-import PromotionalGreeter from "@/Components/PromotionalGreeter";
-import MainCategorySelector from "@/Components/MainCategorySelector";
-import AdminToolbar from "@/Components/AdminToolbar";
+import PromotionalGreeter from "@/Components/Sections/PromotionalGreeter";
+import MainCategorySelector from "@/Components/Sections/MainCategorySelector";
 import { router } from "@inertiajs/react";
 
 // model the data for the categories

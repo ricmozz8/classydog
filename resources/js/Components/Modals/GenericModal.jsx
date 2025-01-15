@@ -1,5 +1,5 @@
-import Modal from "./Modal";
-import Separator from "./Separator";
+import Modal from "@/Components/Modals/Modal";
+import Separator from "@/Components/Sections/Separator";
 export default function GenericModal({ title,  show, onclose, children, ...params }) {
     return (
         <Modal {...params} show={show}>

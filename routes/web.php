@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Database\Factories\UserFactory;
+use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
     return Inertia::render('Landing', [
@@ -31,6 +32,11 @@ Route::get('/active_ad', function() {
    return response()->file($image);
 })->name('ad.active');
 
+
+Route::get('/flush' , function() {
+    Cache::flush();
+    return response()->json(['result' => 200, 'message' => 'Cache flushed']);
+});
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/p/{product}', [ProductController::class, 'show'])->name('products.show');

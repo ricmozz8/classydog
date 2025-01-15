@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
-import TertiaryButton from "./TertiaryButton";
-import ScrollButtons from "./ScrollButtons";
+import TertiaryButton from "@/Components/Buttons/TertiaryButton";
+import ScrollButtons from "@/Components/Buttons/ScrollButtons";
 
 export default function MainCategorySelector({ title, content, allRoute, id }) {
     return (

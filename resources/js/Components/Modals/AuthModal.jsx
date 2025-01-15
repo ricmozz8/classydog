@@ -1,7 +1,7 @@
 
-import GenericModal from "./GenericModal";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
+import GenericModal from "@/Components/Modals/GenericModal";
+import LoginForm from "@/Components/Forms/LoginForm";
+import RegisterForm from "@/Components/Forms/RegisterForm";
 import { useState } from "react";
 
 export default function AuthModal({

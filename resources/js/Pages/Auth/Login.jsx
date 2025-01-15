@@ -1,4 +1,4 @@
-import AuthModal from "@/Components/AuthModal";
+import AuthModal from "@/Components/Modals/AuthModal";
 import { router } from "@inertiajs/react";
 
 export default function Login({auth}) {

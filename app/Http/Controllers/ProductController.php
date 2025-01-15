@@ -16,16 +16,20 @@ class ProductController extends Controller
     public function index() {
 
         // getting all products is an expensive operation, so we cache them
-        $products = Cache::remember('products', 60, function () {
-
+        $products = Cache::remember('products', now()->addMinutes(1), function () {
             return Product::all();
+        });
+
+        // categories wont change much, storing it into the cache
+        $categories = Cache::remember('categories', now()->addMinutes(5), function () {
+            return Category::all();
         });
 
 
 
         return Inertia::render('Listing', [
             'products' => $products,
-            'categories' => Category::all()
+            'categories' => $categories
         ]);
     }
 

@@ -1,7 +1,7 @@
 export default function SearchBar(params) {
     return (
         <form className="flex" {...params}>
-            <div className="rounded-full px-5 py-2 bg-gray-200 flex gap-2 items-center">
+            <div className="rounded-full px-5 py-1 bg-gray-200 flex gap-2 items-center">
                 <i className="las la-search"></i>
                 <input
                     type="text"

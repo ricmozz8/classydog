@@ -1,7 +1,7 @@
-import PrimaryButton from "./PrimaryButton";
-import TertiaryButton from "./TertiaryButton";
-import Input from "./Input";
-import Separator from "./Separator";
+import PrimaryButton from "../Buttons/PrimaryButton";
+import TertiaryButton from "../Buttons/TertiaryButton";
+import Input from "../Inputs/Input";
+import Separator from "../Sections/Separator";
 
 import { router, useForm } from "@inertiajs/react";
 
