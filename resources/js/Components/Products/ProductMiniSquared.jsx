@@ -22,8 +22,8 @@ export default function ProductMiniSquared({ product }) {
 
     return (
         <Link href={route('products.show', product.id)}>
-            <div className=" max-w-52 flex-col items-center justify-center cursor-pointer  transition-colors">
-                <img className="w-full h-72 object-cover rounded-lg" src={product.images_path} alt={product.name} />
+            <div className=" h-full flex-col items-center justify-center cursor-pointer  transition-colors">
+                <img className="w-72 h-72 object-cover rounded-lg" src={product.images_path} alt={product.name} />
                 <div className="py-3">
                     {isFreeShipping && <FreeShippingBadge />}
                     <h1 className="text-3xl font-semibold">{prettyPrice}</h1>
