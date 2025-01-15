@@ -2,6 +2,7 @@ import { Head } from "@inertiajs/react";
 import NavBar from "@/Components/Sections/NavBar";
 import FullLogotype from "@/Components/Branding/FullLogotype";
 import NavCategories from "@/Components/Sections/NavCategories";
+import AdminToolbar from "@/Components/Debug/AdminToolbar";
 
 
 /**
@@ -18,6 +19,7 @@ export default function Layout({ auth, pageTitle, children, ...params }) {
     const currentYear = new Date().getFullYear();
     return (
         <>
+
             <main {...params} className="max-w-screen-2xl m-auto">
                 <Head title={pageTitle}></Head>
                 <NavBar auth={auth}></NavBar>
@@ -37,6 +39,7 @@ export default function Layout({ auth, pageTitle, children, ...params }) {
                     </div>
                 </div>
             </div>
+            <AdminToolbar/>
 
         </>
     );
