@@ -37,17 +37,14 @@ export default function Paginator({ currentPage, changePage, totalPages, ...para
 
             {
                 currentPage !== 1 &&
-            <PaginatorPreviousButton changePage={changePage} currentPage={currentPage} />
+                <PaginatorPreviousButton changePage={changePage} currentPage={currentPage} />
             }
 
             {
                 Array.from({ length: (totalPages - 3) - currentPage }, (_, index) => {
-
-
-
                     if (index >= 1 && index < totalPages) {
                         return (
-                            <PaginatorButton key={index} onClick={() => changePage(index )} isActive={currentPage === index} >
+                            <PaginatorButton key={index} onClick={() => changePage(index)} isActive={currentPage === index} >
                                 {index}
                             </PaginatorButton>
                         )
