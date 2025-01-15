@@ -29,7 +29,7 @@ export default function Layout({ auth, pageTitle, children, ...params }) {
                     <div className="mt-10">
                         <p>Todos los derechos reservados</p>
                         <p> Classydog | &copy;{currentYear}</p>
-                        <span className="font-mono font-thin text-yellow-300">v0.0.0 | DEVELOPMENT</span>
+                        <span className="font-mono font-thin text-yellow-300">v0.0.1 | DEVELOPMENT</span>
                     </div>
                 </div>
             </div>
