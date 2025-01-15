@@ -23,7 +23,7 @@ export default function ProductListingGrid({ products, pagination = 10 }) {
 
         setCurrentPage(page);
         setProductPage(partitionToPage(page));
-        window.scroll(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (

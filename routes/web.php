@@ -20,30 +20,16 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-// Route::get('/fakeuser', function(){
-//     User::factory()->create();
-
-//     return response()->json(['result' => 200]);
-// });
-
-
 Route::get('/active_ad', function() {
    $image = public_path('/active_ads/promotional.png');
    return response()->file($image);
 })->name('ad.active');
 
 
-Route::get('/flush' , function() {
-    Cache::flush();
-    return response()->json(['result' => 200, 'message' => 'Cache flushed']);
-});
-
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/p/{product}', [ProductController::class, 'show'])->name('products.show');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/listing/{category}', [ProductController::class, 'byCategory'])->name('listing');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,3 +38,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/api.php';

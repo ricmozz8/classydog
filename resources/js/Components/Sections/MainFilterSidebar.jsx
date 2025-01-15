@@ -1,6 +1,6 @@
 import RangeInput from "@/Components/Inputs/RangeInput";
 import { useState, useEffect } from "react";
-export default function MainFilterSidebar({ filters, categories }) {
+export default function MainFilterSidebar({ filters }) {
 
 
 
@@ -43,8 +43,8 @@ export default function MainFilterSidebar({ filters, categories }) {
 
 
             <h3 className="text-lg font-semibold my-3 ">Categorías</h3>
-            {categories.map((category, index) => {
-                return (<p className="cursor-pointer text-sm hover:font-semibold hover:underline" key={index}>{category.name}</p>)
+            {filters.categories.map((cat, index) => {
+                return (<p className="cursor-pointer text-sm hover:font-semibold hover:underline" key={index}>{cat.name}</p>)
             })}
 
             <h3 className="text-lg font-semibold my-3 ">Precio</h3>

@@ -1,6 +1,8 @@
 import { Head } from "@inertiajs/react";
 import NavBar from "@/Components/Sections/NavBar";
 import FullLogotype from "@/Components/Branding/FullLogotype";
+import NavCategories from "@/Components/Sections/NavCategories";
+
 
 /**
  * The Guest Layout component.
@@ -19,6 +21,8 @@ export default function Layout({ auth, pageTitle, children, ...params }) {
             <main {...params} className="max-w-screen-2xl m-auto">
                 <Head title={pageTitle}></Head>
                 <NavBar auth={auth}></NavBar>
+                <NavCategories/>
+
                 {children}
             </main>
 

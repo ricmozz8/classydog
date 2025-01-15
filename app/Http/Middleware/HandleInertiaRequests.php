@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -33,6 +34,13 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
+            ],
+
+
+            // Appending shared data from the app
+            'availableCategories' => [
+                'all' => Category::all()->toArray(),
+                'popular' => Category::all()->take(10)->toArray()
             ],
         ];
     }

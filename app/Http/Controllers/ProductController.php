@@ -13,7 +13,8 @@ use Inertia\Inertia;
 class ProductController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
 
         // getting all products is an expensive operation, so we cache them
         $products = Cache::remember('products', now()->addMinutes(1), function () {
@@ -34,9 +35,20 @@ class ProductController extends Controller
     }
 
 
-    public function show(Product $product) {
+    public function show(Product $product)
+    {
         return Inertia::render('SingleProduct', [
             'product' => $product
         ]);
+    }
+
+    public function byCategory(Category $category)
+    {
+        return response()->json(
+            [
+                'message' => 'OK',
+                'selected_category' => $category->name
+            ]
+        );
     }
 }
