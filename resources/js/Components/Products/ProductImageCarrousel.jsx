@@ -8,7 +8,7 @@ export default function ProductImageCarrousel({images, ...params}) {
                         key={index}
                         src={image}
                         alt="product image"
-                        className="w-fit h-[500px] m-auto object-contain rounded-lg shadow-classydog-100 shadow-xl "
+                        className="w-fit h-[500px] m-auto object-contain rounded-lg cursor-pointer hover:brightness-75 transition-all "
                     />
                 );
             })}
