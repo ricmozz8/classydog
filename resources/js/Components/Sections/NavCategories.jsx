@@ -19,7 +19,7 @@ export default function NavCategories(params) {
             <div className="hidden lg:flex items-center gap-2 border-b border-b-gray-300" {...params}>
                 <CategoryButton onClick={() => { toggleCategoriesSidebar() }}>
                     <i className="las la-bars"></i>
-                    <p>Más categorias</p>
+                    <p>Más categorías</p>
                 </CategoryButton>
 
                 {
