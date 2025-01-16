@@ -14,7 +14,7 @@ import AdminToolbar from "@/Components/Debug/AdminToolbar";
  *
  * @returns {JSX.Element}
  */
-export default function Layout({ auth, pageTitle, children, ...params }) {
+export default function Layout({ auth, pageTitle, children, activeCategory, ...params }) {
 
     const currentYear = new Date().getFullYear();
     return (
@@ -23,7 +23,7 @@ export default function Layout({ auth, pageTitle, children, ...params }) {
             <main {...params} className="max-w-screen-2xl m-auto">
                 <Head title={pageTitle}></Head>
                 <NavBar auth={auth}></NavBar>
-                <NavCategories/>
+                <NavCategories activeCategory={activeCategory}/>
 
                 {children}
             </main>

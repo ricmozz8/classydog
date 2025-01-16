@@ -3,7 +3,7 @@ import CategoryButton from "@/Components/Buttons/CategoryButton";
 import AllCategoriesSidebar from "@/Components/Overlays/AllCategoriesSidebar";
 import { useState } from "react";
 
-export default function NavCategories(params) {
+export default function NavCategories({activeCategory, ...params}) {
 
     const { availableCategories } = usePage().props;
     const [showAllCategories, setShowAllCategories] = useState(false);
@@ -27,7 +27,7 @@ export default function NavCategories(params) {
                         return (
 
                             <Link key={index} href={route('listing', category.id)}>
-                                <CategoryButton key={index}>
+                                <CategoryButton isActive={activeCategory && activeCategory === category.id} key={index}>
                                     <p>{category.name}</p>
                                 </CategoryButton>
                             </Link>
