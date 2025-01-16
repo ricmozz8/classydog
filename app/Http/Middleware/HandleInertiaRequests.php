@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
             // Appending shared data from the app
             'availableCategories' => [
                 'all' => Category::all()->toArray(),
-                'popular' => Category::all()->take(10)->toArray()
+                'popular' => Category::all()->take(4)->toArray()
             ],
         ];
     }

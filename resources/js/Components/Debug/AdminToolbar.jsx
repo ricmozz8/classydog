@@ -51,7 +51,7 @@ export default function AdminToolbar(params) {
             <div className="flex items-center gap-2">
 
                 <div onClick={() => {router.post('logout')}} className="p-2 bg-classydog-main text-white hover:bg-classydog-300 cursor-pointer transition-colors flex items-center" >
-                    <i class="las la-sign-out-alt"></i>
+                    <i className="las la-sign-out-alt"></i>
                     <p>Forzar Salida</p>
                 </div>
 

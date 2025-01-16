@@ -4,7 +4,7 @@ export default function AllCategoriesSidebar({categoryList, onToggle, isShowing,
 
 
     return (
-        <Sidebar onToggle={onToggle} title={"Categorías"} side="left" isOpen={isShowing} {...params}>
+        <Sidebar side="left" onToggle={onToggle} title={"Categorías"} isOpen={isShowing} {...params}>
 
 
             {
