@@ -5,6 +5,7 @@ import { usePage } from "@inertiajs/react";
 export default function Listing({products, auth}) {
 
     return (
+
         <Layout pageTitle='Productos' auth={auth}>
             <div className="flex items-start  space-around gap-10">
 
@@ -14,8 +15,8 @@ export default function Listing({products, auth}) {
                     <ProductListingGrid products={products} pagination={12}/>
                 </div>
 
-
             </div>
+            
         </Layout>
     );
 
