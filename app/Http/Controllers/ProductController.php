@@ -44,11 +44,8 @@ class ProductController extends Controller
 
     public function byCategory(Category $category)
     {
-        return response()->json(
-            [
-                'message' => 'OK',
-                'selected_category' => $category->name
-            ]
-        );
+        return Inertia::render('CategoryListing', [
+            'listing' => $category->load('products')
+        ]);
     }
 }

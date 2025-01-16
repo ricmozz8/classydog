@@ -1,12 +1,15 @@
 import RangeInput from "@/Components/Inputs/RangeInput";
+import { usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
-export default function MainFilterSidebar({ filters }) {
+export default function MainFilterSidebar() {
 
 
 
     const [showable, setShowable] = useState(false);
 
     let showClass = showable ? 'flex-col' : 'hidden';
+
+    const categoryList = usePage().props.availableCategories.all;
 
     useEffect(() => {
 
@@ -43,7 +46,7 @@ export default function MainFilterSidebar({ filters }) {
 
 
             <h3 className="text-lg font-semibold my-3 ">Categorías</h3>
-            {filters.categories.map((cat, index) => {
+            {categoryList.map((cat, index) => {
                 return (<p className="cursor-pointer text-sm hover:font-semibold hover:underline" key={index}>{cat.name}</p>)
             })}
 

@@ -8,13 +8,10 @@ export default function Paginator({ currentPage, changePage, totalPages, ...para
         return null;
     }
 
-
-
     if (totalPages <= 3) {
         return (
 
             <div className="flex items-center gap-3" {...params}>
-
                 {
                     Array.from({ length: totalPages }, (_, index) => {
                         return (
@@ -31,44 +28,28 @@ export default function Paginator({ currentPage, changePage, totalPages, ...para
 
     // else the content has more than 3 pages
 
+    const start = Math.max(1, currentPage - 1);
+    const end = Math.min(totalPages, currentPage + 1);
 
     return (
         <div className="flex items-center gap-3 m-auto w-fit my-3" {...params}>
 
-            {
-                currentPage !== 1 &&
-                <PaginatorPreviousButton changePage={changePage} currentPage={currentPage} />
-            }
+            <PaginatorPreviousButton changePage={changePage} currentPage={currentPage} />
+
 
             {
-                Array.from({ length: (totalPages - 3) - currentPage }, (_, index) => {
-                    if (index >= 1 && index < totalPages) {
-                        return (
-                            <PaginatorButton key={index} onClick={() => changePage(index)} isActive={currentPage === index} >
-                                {index}
-                            </PaginatorButton>
-                        )
-                    }
+                Array.from({ length: end - start + 1 }, (_, index) => {
+                    return (
+                        <PaginatorButton key={index + start} onClick={() => changePage(index + start)} isActive={currentPage === index + start} >
+                            {index + start}
+                        </PaginatorButton>
+                    )
                 })
             }
-
-            {
-                currentPage !== totalPages &&
-                <PaginatorButton onClick={() => changePage(totalPages)} isActive={currentPage === totalPages} >
-                    {totalPages}
-                </PaginatorButton>
-            }
-
-
-            {
-                currentPage !== totalPages && <PaginatorNextButton changePage={changePage} currentPage={currentPage} />
-            }
-
-
+            <PaginatorNextButton changePage={changePage} currentPage={currentPage} />
 
         </div>
     )
 }
-
 
 
