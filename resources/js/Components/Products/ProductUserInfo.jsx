@@ -1,11 +1,18 @@
-export default function ProductUserInfo({ region, country, lastEdited, views, ...params }) {
-
+export default function ProductUserInfo({ validGeo, region, country, lastEdited, views, ...params }) {
+    console.log(validGeo);
     return (
         <div className="flex items-center gap-2 p-4 justify-between border-b border-b-gray-200" {...params}>
 
             <div className="flex items-center gap-2 text-sm">
-                <i className="las la-map-marker-alt"></i>
-                <p className="md:text-sm font-semibold text-xs">{region}, {country}</p>
+
+                {
+                    validGeo ?
+                    <p className="md:text-sm font-semibold text-xs">
+                        <i className="las la-map-marker-alt"></i>{region}, {country}
+                    </p> :
+                    null
+                }
+
                 <p className="md:text-sm text-xs">Editado {lastEdited}</p>
             </div>
 

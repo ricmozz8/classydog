@@ -37,6 +37,9 @@ class User extends Authenticatable
      */
     public function getGeographicsAttribute(): array
     {
+
+        $this->generateGeographics();
+
         return $this->geographics()->first()->toArray();
     }
 
