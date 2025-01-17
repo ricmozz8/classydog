@@ -37,15 +37,19 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'name' => ucwords($request->name),
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'last_login' => now(),
+            'ip' => $request->ip(),
         ]);
+
+        $user->generateGeographics();
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('home', absolute: false));
     }
 }

@@ -24,9 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'last_login',
+        'ip'
     ];
 
-    protected $appends = ['country'];
+    protected $appends = ['country' , 'region'];
 
     /**
      * Get the user's country
@@ -35,6 +37,10 @@ class User extends Authenticatable
      */
     public function getCountryAttribute(){
         return $this->country();
+    }
+
+    public function getRegionAttribute(){
+        return $this->region();
     }
 
     /**
@@ -60,39 +66,57 @@ class User extends Authenticatable
         ];
     }
 
+    public function geographics()
+    {
+        return $this->hasOne(Geographic::class);
+    }
 
-    /**
-     * Returns the country of the user based on their latest session.
-     *
-     * Queries the ip-api.com endpoint to get the country and regionName
-     * of the user based on their latest known IP address.
-     *
-     * Returns an array with two keys: 'country' and 'regionName'.
-     * If the request fails or the response is invalid, returns an array
-     * with 'Unknown' for the values of 'country' and 'regionName'.
-     *
-     * @return array<string, string>
-     */
     public function country()
     {
+        return $this->generateGeographics()->country;
+    }
 
-        $lastSession = Session::where('user_id', $this->id)->latest()->first();
+    public function region()
+    {
+        return $this->generateGeographics()->region;
+    }
 
-        if ($lastSession) {
-            // Hitting the endpoint to find out the user's country
-            $response = Http::get('http://ip-api.com/json/' . $lastSession->ip_address);
+    /**
+     * Returns the user's country and region. If the user does not have a
+     * geographic record, it will create one by hitting the ip-api.com
+     * endpoint.
+     *
+     * @return \App\Models\Geographic
+     */
+    public function generateGeographics()
+    {
+
+        $geographics = $this->geographics()->first();
+
+        // The API (ip-api.com) values for the country and region are:
+        // 'country'
+        // 'regionName'
+
+        if (!$geographics) {
+            // Hitting the endpoint to find out the user's country (Non-async)
+            $response = Http::get('http://ip-api.com/json/' . $this->ip);
+            $country = 'Unknown';
+            $regionName = 'Unknown';
 
             if ($response->successful() && $response->json()['status'] === 'success') {
-                return [
-                    'country' => $response->json()['country'],
-                    'regionName' => $response->json()['regionName'],
-                ];
+                $country = $response->json()['country'];
+                $regionName = $response->json()['regionName'];
             }
+
+            // Creating the geographic record
+            $geographics = Geographic::create([
+                'user_id' => $this->id,
+                'country' => $country,
+                'region' => $regionName,
+                'valid' => $country !== 'Unknown' ? true : false
+            ]);
         }
 
-        return [
-            'country' => 'Unknown',
-            'regionName' => 'Unknown',
-        ];
+        return $geographics;
     }
 }
