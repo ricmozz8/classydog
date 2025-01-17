@@ -26,7 +26,7 @@ export default function NavBar({ auth }) {
             <nav className=" hidden sticky bg-white top-0 p-3 m-auto md:flex align-middle items-center justify-between z-10 ">
                 <Link href="/" className="flex items-center gap-1">
                     <FullLogotype variant="positive" />
-                    
+
 
                 </Link>
                 <SearchBar className="flex-1 mx-20" method="POST" action="#" />
