@@ -1,12 +1,12 @@
 
 
-export default function ApplicationLogo(props) {
+export default function ApplicationLogo({width = '100%', height = '100%', ...props}) {
     return (
         <svg
             alt="Classydog Logo"
             {...props}
-            width="100%"
-            height="100%"
+            width={width}
+            height={height}
             viewBox="0 0 92 93"
             style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}
 

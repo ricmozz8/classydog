@@ -5,7 +5,7 @@ export default function ProductSpecifics({ specifics, ...params }) {
     }
 
     return (
-        <div className="flex items-center justify-around gap-2 py-5">
+        <div className="flex items-center justify-around gap-2 py-5 border-b border-b-gray-200">
             {
                 specifics.map((specific, index) => {
                     return (
