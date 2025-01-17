@@ -15,7 +15,7 @@ export default function SimilarProducts({ relatedProducts, ...params }) {
             <div className="grid grid-cols-4 gap-4  py-4">
                 {relatedProducts.map((product, index) => {
                     return (
-                        <ProductMiniSquared key={index} product={product} />
+                        <ProductMiniSquared key={index} product={product} size="squared" />
                     )
                 })}
             </div>
