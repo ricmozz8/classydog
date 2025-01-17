@@ -11,7 +11,6 @@ import SimilarProducts from "@/Components/Products/SimilarProducts";
 export default function SingleProduct({ auth, product, reviews, relatedProducts }) {
 
     const prettyPrice = '$' + product.price.toFixed(2);
-    console.log(product);
 
     return (
         <Layout pageTitle={product.name} auth={auth}>

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -39,8 +40,12 @@ class HandleInertiaRequests extends Middleware
 
             // Appending shared data from the app
             'availableCategories' => [
-                'all' => Category::all()->toArray(),
-                'popular' => Category::all()->take(4)->toArray()
+                'all' => Cache::remember('categories', now()->addHours(2), function () {
+                    return Category::all()->toArray();
+                }),
+                'popular' => Cache::remember('popular', now()->addHours(2), function () {
+                    return Category::all()->take(4)->toArray();
+                })
             ],
         ];
     }
