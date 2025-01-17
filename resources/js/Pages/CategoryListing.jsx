@@ -4,11 +4,11 @@ import ListingLayout from "@/Layouts/ListingLayout";
 import ProductListingGrid from "@/Components/Products/ProductListingGrid";
 
 
-export default function CategoryListing({ auth, listing }) {
+export default function CategoryListing({ auth, categoryTitle,listing }) {
 
     return (
-        <ListingLayout auth={auth} pageTitle={listing.name} activeCategory={listing.id}>
-            <PageHeader title={listing.name} subtitle={listing.content} />
+        <ListingLayout auth={auth} pageTitle={categoryTitle} activeCategory={listing.id}>
+            <PageHeader title={categoryTitle} subtitle={listing.content} />
             <ProductListingGrid products={listing.products} pagination={12} />
         </ListingLayout>
     )

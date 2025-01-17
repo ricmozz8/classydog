@@ -9,7 +9,7 @@ export default function ProductMainActions({ product, ...params }) {
     const prettyShippingCost = '$' + product.shipping_cost.toFixed(2);
 
     return (
-    <div {...params} className="flex justify-between items-center p-4 sticky top-16 bg-white border-b border-b-gray-200">
+        <div {...params} className="flex justify-between items-center p-4 sticky top-16 z-10 bg-white border-b border-b-gray-200">
             <div className="flex-col">
                 <div className="flex items-center gap-3">
                     <h1 className="text-3xl font-semibold">{prettyPrice}</h1>
@@ -20,7 +20,7 @@ export default function ProductMainActions({ product, ...params }) {
                     ) : null}
                 </div>
                 <h2 className="text-sm">{product.name}</h2>
-                <p className="text-xs">Vendido por: {product.user.name}</p>
+                <p className="text-xs">Vendido por: <span className="hover:underline cursor-pointer">{product.user.name}</span> </p>
             </div>
 
 

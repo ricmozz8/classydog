@@ -28,19 +28,16 @@ class User extends Authenticatable
         'ip'
     ];
 
-    protected $appends = ['country' , 'region'];
+    protected $appends = ['geographics'];
 
     /**
      * Get the user's country
      *
      * @return array<string, string>
      */
-    public function getCountryAttribute(){
-        return $this->country();
-    }
-
-    public function getRegionAttribute(){
-        return $this->region();
+    public function getGeographicsAttribute(): array
+    {
+        return $this->geographics()->first()->toArray();
     }
 
     /**
@@ -69,16 +66,6 @@ class User extends Authenticatable
     public function geographics()
     {
         return $this->hasOne(Geographic::class);
-    }
-
-    public function country()
-    {
-        return $this->generateGeographics()->country;
-    }
-
-    public function region()
-    {
-        return $this->generateGeographics()->region;
     }
 
     /**

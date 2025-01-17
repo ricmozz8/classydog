@@ -1,14 +1,18 @@
 import ProductMiniSquared from "@/Components/Products/ProductMiniSquared";
 import TertiaryButton from "@/Components/Buttons/TertiaryButton";
-export default function SimilarProducts({ relatedProducts, ...params }) {
+import { Link } from "@inertiajs/react";
+export default function SimilarProducts({ relatedProducts, productCategory, ...params }) {
 
     return (
         <div className="my-5" {...params}>
             <div className="flex items-center justify-between">
                 <h2 className="text-3xl font-semibold">Productos similares</h2>
-                <TertiaryButton>
-                    <i className="las la-arrow-right"></i> Ver todos
-                </TertiaryButton>
+
+                <Link href={route('listing', productCategory )}>
+                    <TertiaryButton>
+                        <i className="las la-arrow-right"></i> Ver más
+                    </TertiaryButton>
+                </Link>
 
             </div>
 

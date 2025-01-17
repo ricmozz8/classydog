@@ -41,10 +41,16 @@ class HandleInertiaRequests extends Middleware
             // Appending shared data from the app
             'availableCategories' => [
                 'all' => Cache::remember('categories', now()->addHours(2), function () {
-                    return Category::all()->toArray();
+                    return Category::all()->map(function ($category) {
+                        $category->name = trans('categories.' . $category->name);
+                        return $category;
+                    });
                 }),
                 'popular' => Cache::remember('popular', now()->addHours(2), function () {
-                    return Category::all()->take(4)->toArray();
+                    return Category::all()->take(4)->map(function ($category) {
+                        $category->name = trans('categories.' . $category->name);
+                        return $category;
+                    });
                 })
             ],
         ];

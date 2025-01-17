@@ -31,12 +31,12 @@ export default function SingleProduct({ auth, product, reviews, relatedProducts 
                     <p className="text-center p-6 border-b border-b-gray-200">{product.description}</p>
 
 
-                    <ProductUserInfo country={product.user.country} region={product.user.region} lastEdited={product.last_edited} views={product.views}  />
+                    <ProductUserInfo country={product.user.geographics.country} region={product.user.geographics.region} lastEdited={product.last_edited} views={product.views}  />
 
 
                     <ProductReviews reviews={[]} />
 
-                    <SimilarProducts relatedProducts={[product, product, product, product]} />
+                    <SimilarProducts productCategory={product.category_id} relatedProducts={relatedProducts} />
 
                 </div>
 

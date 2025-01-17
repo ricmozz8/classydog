@@ -12,7 +12,7 @@ export default function ProductMiniSquared({ product, size = 'vertical', ...para
         }
     };
 
-    let imageSize ;
+    let imageSize;
 
     switch (size) {
         case 'squared':
@@ -29,7 +29,7 @@ export default function ProductMiniSquared({ product, size = 'vertical', ...para
             break;
     }
 
-// href={route('', product.id)}
+    // href={route('', product.id)}
     const prettyPrice = '$' + product.price.toFixed(2);
 
     let isFreeShipping = false;
@@ -39,7 +39,10 @@ export default function ProductMiniSquared({ product, size = 'vertical', ...para
 
     return (
         <Link href={route('products.show', product.id)}>
-            <div className=" h-full flex-col items-center justify-center cursor-pointer  transition-colors">
+            <div className={`
+                h-full flex-col items-center
+                justify-center cursor-pointer
+                transition-all  hover:-translate-y-1 `}>
                 <img className={imageSize + " object-cover rounded-lg"} src={product.images_path} alt={product.name} />
                 <div className="py-3">
                     {isFreeShipping && <FreeShippingBadge />}

@@ -13,14 +13,14 @@ export default function Sidebar({ side, isOpen, title, onToggle, children, ...pa
 
         <>
             {/* overlay */}
-            <div className={"fixed inset-0 z-10 bg-gray-900/50 transition-colors " + hideClass} onClick={() => { onToggle() }} id="overlay"></div>
+            <div className={"fixed inset-0 z-20 bg-gray-900/50 transition-colors " + hideClass} onClick={() => { onToggle() }} id="overlay"></div>
 
             <div id="sidebar" className={`
             flex-col w-80 min-w-60
             fixed h-screen z-20
             transition-all duration-300
             ease-in-out bg-white
-            top-0   
+            top-0
             shadow-xl select-none` + ' ' + showClass + ' ' + sideClass
             }>
                 <div className="flex items-center justify-between p-3 gap-3">

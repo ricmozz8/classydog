@@ -37,15 +37,24 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        // Get up to 4 related products by category_id except the current product
+        $related = Product::where('category_id', $product->category_id)
+            ->whereNotIn('id', [$product->id])
+            ->inRandomOrder() // change this when statistics are implemented to be more relevant
+            ->take(4)
+            ->get();
+
         return Inertia::render('SingleProduct', [
             'product' => $product->load(['specifics', 'user']),
+            'relatedProducts' => $related
         ]);
     }
 
     public function byCategory(Category $category)
     {
         return Inertia::render('CategoryListing', [
-            'listing' => $category->load('products')
+            'listing' => $category->load('products'),
+            'categoryTitle' => trans('categories.' . $category->name)
         ]);
     }
 }
