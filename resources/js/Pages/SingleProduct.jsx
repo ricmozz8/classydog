@@ -1,16 +1,14 @@
 import Layout from "@/Layouts/Layout";
-import ProductImageCarrousel from "@/Components/Products/ProductImageCarrousel";
+import ProductImageCarrousel from "@/Components/Products/Images/ProductImageCarrousel";
 import BackButton from "@/Components/Buttons/BackButton";
 import ProductMainActions from "@/Components/Products/ProductMainActions";
 import ProductSpecifics from "@/Components/Products/ProductSpecifics";
 import ProductUserInfo from "@/Components/Products/ProductUserInfo";
-import ProductReviews from "@/Components/Products/ProductReviews";
+import ProductReviews from "@/Components/Products/Reviews/ProductReviews";
 import SimilarProducts from "@/Components/Products/SimilarProducts";
 
 
-export default function SingleProduct({ auth, product, reviews, relatedProducts }) {
-
-    const prettyPrice = '$' + product.price.toFixed(2);
+export default function SingleProduct({ auth, product, relatedProducts }) {
 
     return (
         <Layout pageTitle={product.name} auth={auth}>
@@ -22,21 +20,23 @@ export default function SingleProduct({ auth, product, reviews, relatedProducts 
 
                     <ProductMainActions product={product} />
 
-
-
                     <ProductSpecifics specifics={product.specifics} />
-
-
 
                     <p className="text-center p-6 border-b border-b-gray-200">{product.description}</p>
 
+                    <ProductUserInfo
+                        validGeo={product.user.geographics.valid}
+                        country={product.user.geographics.country}
+                        region={product.user.geographics.region}
+                        lastEdited={product.last_edited}
+                        views={product.views} />
 
-                    <ProductUserInfo validGeo={product.user.geographics.valid} country={product.user.geographics.country} region={product.user.geographics.region} lastEdited={product.last_edited} views={product.views}  />
+                    <ProductReviews
+                        reviews={product.user.reviews} />
 
-
-                    <ProductReviews reviews={[]} />
-
-                    <SimilarProducts productCategory={product.category_id} relatedProducts={relatedProducts} />
+                    <SimilarProducts
+                        productCategory={product.category_id}
+                        relatedProducts={relatedProducts} />
 
                 </div>
 

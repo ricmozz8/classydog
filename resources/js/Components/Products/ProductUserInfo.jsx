@@ -1,5 +1,4 @@
 export default function ProductUserInfo({ validGeo, region, country, lastEdited, views, ...params }) {
-    console.log(validGeo);
     return (
         <div className="flex items-center gap-2 p-4 justify-between border-b border-b-gray-200" {...params}>
 

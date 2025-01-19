@@ -15,6 +15,7 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,7 +29,12 @@ class User extends Authenticatable
         'ip'
     ];
 
-    protected $appends = ['geographics'];
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    protected $appends = ['geographics', 'rating'];
 
     /**
      * Get the user's country
@@ -43,6 +49,12 @@ class User extends Authenticatable
         return $this->geographics()->first()->toArray();
     }
 
+    public function getRatingAttribute(): float
+    {
+        return $this->reviews()->avg('rating') ?? 0;
+    }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,6 +63,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'last_login',
+        'ip'
     ];
 
     /**
@@ -88,15 +102,32 @@ class User extends Authenticatable
         // 'regionName'
 
         if (!$geographics) {
-            // Hitting the endpoint to find out the user's country (Non-async)
-            $response = Http::get('http://ip-api.com/json/' . $this->ip);
+
             $country = 'Unknown';
             $regionName = 'Unknown';
 
-            if ($response->successful() && $response->json()['status'] === 'success') {
-                $country = $response->json()['country'];
-                $regionName = $response->json()['regionName'];
-            }
+
+            // we're making an asynchronous call to the API and giving two callback functions
+            $promise = Http::async()
+                ->get('http://ip-api.com/json/' . $this->ip) // we're combining the API URI to the users IP
+                ->then(
+                    // this is the success callback
+                    function ($response) use (&$country, &$regionName) {
+                        $country = $response->json()['country'];
+                        $regionName = $response->json()['regionName'];
+                    },
+
+                    // this is the failure callback
+                    function () use (&$country, &$regionName) {
+                        $country = 'Unknown';
+                        $regionName = 'Unknown';
+
+                    }
+                );
+
+            // Waiting for the response to be returned
+            $promise->wait();
+
 
             // Creating the geographic record
             $geographics = Geographic::create([

@@ -45,7 +45,7 @@ class ProductController extends Controller
             ->get();
 
         return Inertia::render('SingleProduct', [
-            'product' => $product->load(['specifics', 'user']),
+            'product' => $product->load(['specifics', 'user', 'user.reviews']),
             'relatedProducts' => $related
         ]);
     }

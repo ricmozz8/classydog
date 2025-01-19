@@ -4,6 +4,7 @@ import SearchBar from "@/Components/Sections/SearchBar";
 import PrimaryButton from "@/Components/Buttons/PrimaryButton";
 import SecondaryButton from "@/Components/Buttons/SecondaryButton";
 import AuthModal from "@/Components/Modals/AuthModal";
+import { useEffect } from "react";
 
 import { useState } from "react";
 
@@ -21,9 +22,37 @@ export default function NavBar({ auth }) {
         </PrimaryButton>
     );
 
+    let onStickyBorder = 'border-b-gray-300';
+
+    const [isSticky, setIsSticky] = useState(false);
+
+
+    useEffect(() => {
+
+
+        const onScrollPosition = () => {
+
+            if (window.scrollY > 70)
+                setIsSticky(true)
+            else
+                setIsSticky(false)
+        }
+
+        window.addEventListener('scroll', onScrollPosition);
+
+        return () => { window.removeEventListener('scroll', onScrollPosition) };
+
+    }, []);
+
+
+
     return (
         <>
-            <nav className=" hidden sticky bg-white top-0 p-3 m-auto md:flex align-middle items-center justify-between z-10 ">
+            <nav className={`
+            hidden sticky bg-white border-b
+            top-0 p-3 m-auto md:flex align-middle items-center justify-between z-20
+                ` + ' ' + (isSticky ? onStickyBorder : 'border-b-transparent')}>
+
                 <Link href="/" className="flex items-center gap-1">
                     <FullLogotype variant="positive" />
 

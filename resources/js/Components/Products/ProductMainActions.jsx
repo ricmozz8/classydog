@@ -20,13 +20,19 @@ export default function ProductMainActions({ product, ...params }) {
                     ) : null}
                 </div>
                 <h2 className="text-sm">{product.name}</h2>
-                <p className="text-xs">Vendido por: <span className="hover:underline cursor-pointer">{product.user.name}</span> </p>
+                <p className="text-xs flex items-center gap-1">
+                    Vendido por:
+                    <span className="hover:underline cursor-pointer">
+                        {product.user.name}
+                    </span>
+                    <i className="las la-star text-yellow-500"></i>{product.user.rating.toFixed(1)}
+                </p>
             </div>
 
 
             <div className="flex items-center gap-1 md:text-xl">
-                <IconButton lineIcon="la-flag" />
-                <IconButton lineIcon="la-heart" />
+                <IconButton lineIcon="flag" />
+                <IconButton lineIcon="heart" />
                 <PrimaryButton>
                     <i className="las la-comments"></i>
                     <p className="text-md">Chat</p>

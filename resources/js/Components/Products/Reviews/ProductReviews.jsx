@@ -1,7 +1,10 @@
 import SecondaryButton from "@/Components/Buttons/SecondaryButton"
+import ReviewCard from "@/Components/Products/Reviews/ReviewCard";
 export default function ProductReviews({ reviews, ...params }) {
 
     const hasReviews = reviews.length > 0;
+
+
 
     return (
         <div className="p-4 border-b border-b-gray-200 " {...params}>
@@ -12,7 +15,10 @@ export default function ProductReviews({ reviews, ...params }) {
                         <i className="las la-star"></i>
                         Valoraciones
                     </h2>
-                    <p className="text-sm">({reviews.length} opiniones)</p>
+                    <div className="flex items-center gap-2">
+                        <p className="text-3xl font-semibold">({reviews.length})</p>
+                    </div>
+
                 </div>
                 {
                     hasReviews &&
@@ -26,10 +32,14 @@ export default function ProductReviews({ reviews, ...params }) {
 
             </div>
 
-            <div className="py-6">
+            <div className="py-1">
                 {
                     hasReviews ? (
-                        <p>Aqui iran las valoraciones</p>
+                        reviews.map((review, index) => {
+                            return (
+                                <ReviewCard key={index} review={review} />
+                            );
+                        })
                     ) : (
                         <p className="text-sm text-center">(Sin valoraciones)</p>
                     )
