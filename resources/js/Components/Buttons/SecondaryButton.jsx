@@ -13,9 +13,9 @@ export default function SecondaryButton({
                 border border-classydog-main items-center flex  gap-1 text-classydog-main
                 px-4 py-2 rounded-full cursor-pointer font-sans font-medium
                 hover:border-classydog-500 hover:text-classydog-500 hover:bg-gray-100
-                transition-colors
+                transition-colors 
 
-                `}
+                ` + className}
             disabled={disabled}
         >
             {children}
