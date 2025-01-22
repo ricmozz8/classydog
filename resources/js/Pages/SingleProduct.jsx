@@ -32,7 +32,8 @@ export default function SingleProduct({ auth, product, relatedProducts }) {
                         views={product.views} />
 
                     <ProductReviews
-                        reviews={product.user.reviews} />
+                        reviews={product.user.reviews}
+                        auth={auth} />
 
                     <SimilarProducts
                         productCategory={product.category_id}

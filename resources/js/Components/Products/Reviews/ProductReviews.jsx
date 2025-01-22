@@ -1,6 +1,7 @@
 import SecondaryButton from "@/Components/Buttons/SecondaryButton"
 import ReviewCard from "@/Components/Products/Reviews/ReviewCard";
-export default function ProductReviews({ reviews, ...params }) {
+import AddReviewBox from "@/Components/Products/Reviews/AddReviewBox";
+export default function ProductReviews({ auth, reviews, ...params }) {
 
     const hasReviews = reviews.length > 0;
 
@@ -20,6 +21,8 @@ export default function ProductReviews({ reviews, ...params }) {
                     </div>
 
                 </div>
+
+
                 {
                     hasReviews &&
                     <SecondaryButton>
@@ -31,6 +34,12 @@ export default function ProductReviews({ reviews, ...params }) {
 
 
             </div>
+
+            {
+                auth &&
+                <AddReviewBox />
+
+            }
 
             <div className="py-1">
                 {
