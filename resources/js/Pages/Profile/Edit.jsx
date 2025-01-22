@@ -1,13 +1,15 @@
 import Layout from '@/Layouts/Layout';
-import { Head } from '@inertiajs/react';
+import UserProfileBannerEdit from './Partials/UserProfileBannerEdit';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 
 export default function Edit({ mustVerifyEmail, status, auth }) {
     return (
-        <Layout auth={auth}  pageTitle="Profile"
-        >
+        <Layout auth={auth} pageTitle="Profile">
+
+            <UserProfileBannerEdit user={auth.user} />
+
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
