@@ -15,12 +15,7 @@ export default function NavBar({ auth }) {
         setIsOpen(!isOpen);
     };
 
-    const mainAction = (
-        <PrimaryButton>
-            <i className="las la-plus"></i>
-            Vende
-        </PrimaryButton>
-    );
+
 
     let onStickyBorder = 'border-b-gray-300';
 
@@ -76,15 +71,12 @@ export default function NavBar({ auth }) {
                         )}
 
 
-                    {auth.user === null ? (
-                        <span onClick={() => { toggleModal(); }}>
-                            {mainAction}
-                        </span>
-                    ) : (
-                        <Link href="/sell">
-                            {mainAction}
-                        </Link>
-                    )}
+                    <Link href="/sell">
+                        <PrimaryButton>
+                            <i className="las la-plus"></i>
+                            Vende
+                        </PrimaryButton>
+                    </Link>
 
 
 

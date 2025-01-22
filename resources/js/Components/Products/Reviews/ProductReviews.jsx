@@ -35,7 +35,7 @@ export default function ProductReviews({ auth, reviews, ...params }) {
 
             </div>
 
-        
+
             <div className="py-1">
                 {
                     hasReviews ? (

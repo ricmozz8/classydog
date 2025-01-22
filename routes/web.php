@@ -29,6 +29,14 @@ Route::get('/active_ad', function() {
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/p/{product}', [ProductController::class, 'show'])->name('products.show');
 
+Route::middleware(['auth'])->prefix('sell')->group(function () {
+
+    Route::get('/', [ProductController::class, 'create'])->name('products.create');
+
+
+});
+
+
 Route::get('/listing/{category}', [ProductController::class, 'byCategory'])->name('listing');
 
 Route::middleware('auth')->group(function () {

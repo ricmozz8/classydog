@@ -28,7 +28,7 @@ class ProductController extends Controller
 
 
 
-        return Inertia::render('Listing', [
+        return Inertia::render('Products/Listing', [
             'products' => $products,
             'categories' => $categories
         ]);
@@ -44,7 +44,7 @@ class ProductController extends Controller
             ->take(4)
             ->get();
 
-        return Inertia::render('SingleProduct', [
+        return Inertia::render('Products/SingleProduct', [
             'product' => $product->load(['specifics', 'user', 'user.reviews']),
             'relatedProducts' => $related
         ]);
@@ -52,9 +52,15 @@ class ProductController extends Controller
 
     public function byCategory(Category $category)
     {
-        return Inertia::render('CategoryListing', [
+        return Inertia::render('Products/CategoryListing', [
             'listing' => $category->load('products'),
             'categoryTitle' => trans('categories.' . $category->name)
         ]);
+    }
+
+
+    public function create()
+    {
+        return Inertia::render('Products/Create');
     }
 }
