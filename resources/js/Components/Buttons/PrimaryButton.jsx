@@ -19,7 +19,7 @@ export default function PrimaryButton({
                  focus:ring-classydog-400
                 text-white px-4 py-2 rounded-full cursor-pointer
                 font-medium
-                font-sans transition-colors` + className
+                font-sans transition-colors ` + className
             }
             disabled={disabled}
         >

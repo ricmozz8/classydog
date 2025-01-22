@@ -1,7 +1,7 @@
 import InputLabel from "./InputLabel";
 import InputError from "./InputError";
 import { useRef, useState } from "react";
-export default function Input({ title, type, name, className = "", error, ...props }) {
+export default function Input({ title, subtitle, type, name, className = "", error, ...props }) {
 
 
 
@@ -45,6 +45,7 @@ export default function Input({ title, type, name, className = "", error, ...pro
                 {...props}
 
             />
+            <p className="text-xs text-gray-500">{subtitle}</p>
             <InputError message={error} />
         </div>
     );

@@ -73,7 +73,7 @@ export default function NavBar({ auth }) {
 
                     <Link href="/sell">
                         <PrimaryButton>
-                            <i className="las la-plus"></i>
+                            <i className="las la-plus-circle"></i>
                             Vende
                         </PrimaryButton>
                     </Link>

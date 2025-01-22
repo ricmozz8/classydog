@@ -4,10 +4,10 @@ export default function ListingLayout({auth, pageTitle, activeCategory, children
 
     return(
         <Layout pageTitle={pageTitle} auth={auth} activeCategory={activeCategory}>
-            <div className="flex items-start  space-around gap-10">
+            <div className="flex items-start gap-2">
 
                 <MainFilterSidebar />
-                <div className=" h-full py-6 w-full">
+                <div className=" h-full p-6 w-full">
                     {children}
                 </div>
             </div>

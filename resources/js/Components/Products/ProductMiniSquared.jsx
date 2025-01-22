@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/react";
 import FreeShippingBadge from "@/Components/Badges/FreeShippingBadge";
+import ShippingAvailableBadge from "@/Components/Badges/ShippingAvailableBadge";
 export default function ProductMiniSquared({ product, size = 'vertical', ...params }) {
 
 
@@ -37,18 +38,23 @@ export default function ProductMiniSquared({ product, size = 'vertical', ...para
     if (product.can_be_shipped && product.shipping_cost === 0)
         isFreeShipping = true;
 
+
+
     return (
         <Link href={route('products.show', product.id)}>
             <div className={`
                 h-full flex-col items-center
                 justify-center cursor-pointer
                 transition-all  hover:-translate-y-1 `}>
-                <img className={imageSize + " object-cover rounded-lg"} src={product.images_path} alt={product.name} />
+                <img className={imageSize + " object-cover rounded-lg w-full"} src={product.images_path} alt={product.name} />
                 <div className="py-3">
-                    {isFreeShipping && <FreeShippingBadge />}
-                    <h1 className="text-3xl font-semibold">{prettyPrice}</h1>
+                    <div className="*:my-1 ">
+                        {isFreeShipping && <FreeShippingBadge />}
+                        {product.can_be_shipped ? <ShippingAvailableBadge /> : ""}
+                    </div>
+                    <h1 className="md:text-3xl text-lg font-semibold">{prettyPrice}</h1>
                     <h2 className="text-sm">{product.name}</h2>
-                    <p className="text-xs">{simpleDescription()}</p>
+                    <p className="text-xs hidden md:block">{simpleDescription()}</p>
                     <p className="text-xs">Vendido por: {product.sold_by}</p>
                 </div>
             </div>

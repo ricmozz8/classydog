@@ -1,4 +1,4 @@
-export default function TextArea({ content = '', caption = '', ...params }) {
+export default function TextArea({ content = '', subtitle, caption = '', ...params }) {
 
 
     return (
@@ -12,6 +12,7 @@ export default function TextArea({ content = '', caption = '', ...params }) {
                 name="new-comment"
                 id="new-comment" >{content}
             </textarea>
+            <p className="text-xs text-gray-500">{subtitle}</p>
 
 
         </div>

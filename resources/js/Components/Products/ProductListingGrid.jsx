@@ -28,7 +28,7 @@ export default function ProductListingGrid({ products, pagination = 10 }) {
 
     return (
         <div className="scroll-smooth">
-            <div className="grid gap-3  grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full py-3">
+            <div className="grid gap-3  grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full ">
 
                 {productPage.map((product, index) => {
                     return (

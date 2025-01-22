@@ -9,9 +9,9 @@ export default function Create({ auth }) {
         <Layout pageTitle='Vende' auth={auth}>
 
             <CreateSellProductForm categories={availableCategories}>
-                <div className="py-4 flex items-center gap-2 text-4xl">
+                <div className="py-4 flex items-center gap-2 text-2xl md:text-4xl">
                     <i className="las la-plus-circle"></i>
-                    <h1 className="font-semibold">Vende</h1>
+                    <h1 className="font-semibold">Descripción del producto</h1>
                 </div>
             </CreateSellProductForm>
 

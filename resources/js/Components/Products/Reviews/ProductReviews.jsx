@@ -11,13 +11,13 @@ export default function ProductReviews({ auth, reviews, ...params }) {
         <div className="p-4 border-b border-b-gray-200 " {...params}>
 
             <div className="flex items-center justify-between">
-                <div className="md:flex items-center gap-2">
+                <div className="flex items-center gap-2">
                     <h2 className="md:text-3xl font-semibold flex items-center gap-2">
                         <i className="las la-star"></i>
                         Valoraciones
                     </h2>
                     <div className="flex items-center gap-2">
-                        <p className="text-3xl font-semibold">({reviews.length})</p>
+                        <p className="md:text-3xl font-semibold">({reviews.length})</p>
                     </div>
 
                 </div>
