@@ -9,7 +9,7 @@ export default function CreateSellProductForm({ children, categories, ...params 
         <div {...params} className="rounded-md md:border md:border-gray-200 p-8 my-4 m-auto max-w-2xl">
             <form action="#">
                 {children}
-                <ImageDropper caption="Imagen" subtitle={'Añade varias imágenes para que los compradores conozcan el producto'} />
+                <ImageDropper centerText={'Arrastra tus imagenes o haz clic para subirlas'} caption="Imágenes" subtitle={'Añade varias para que los compradores conozcan el producto  (Sube imágenes de tipo JPG, PNG o JPEG)'} />
 
                 <Input title={"Nombre del producto"}
                     type="text" name="product-name"
@@ -21,13 +21,14 @@ export default function CreateSellProductForm({ children, categories, ...params 
 
                 <TextArea title={"Descripción"}
                     caption="Descripción del producto"
+                    height={"300px"}
                     type="text" name="product-description"
                     subtitle={'Sé lo más descriptivo posible, se le hará más fácil encontrar el producto a los compradores'}
                     placeholder="Descripción del producto" required />
 
                 <Selection title={"Categoría"} optionsList={categories.all} name="product-category" />
 
-                <Selection title={"Estado"} optionsList={[{ id: 1, name: "Nuevo" }, { id: 2, name: "Usado" }]} name="product-category" />
+                <Selection title={"Estado"} optionsList={[{ id: 1, name: "Como nuevo" }, { id: 2, name: "Bueno" }, { id: 3, name: "Dañado" }]} name="product-category" />
 
                 <PrimaryButton className="w-full md:w-fit">
                     <i className="las la-arrow-up"></i>

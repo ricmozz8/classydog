@@ -1,4 +1,4 @@
-export default function TextArea({ content = '', subtitle, caption = '', ...params }) {
+export default function TextArea({ content, height, subtitle, caption, ...params }) {
 
 
     return (
@@ -6,7 +6,7 @@ export default function TextArea({ content = '', subtitle, caption = '', ...para
             <p className="text-sm">{caption}</p>
             <textarea
                 {...params}
-                className={`border w-full border-gray-300 rounded-md p-2 focus:border-gray-300
+                className={`border w-full h-[${height}] border-gray-300 rounded-md p-2 focus:border-gray-300
                 focus:ring-2 focus:ring-classydog-500
                 hover:bg-gray-100 transition-colors`}
                 name="new-comment"
