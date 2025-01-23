@@ -9,7 +9,7 @@ export default function CreateSellProductForm({ children, categories, ...params 
         <div {...params} className="rounded-md md:border md:border-gray-200 p-8 my-4 m-auto max-w-2xl">
             <form action="#">
                 {children}
-                <ImageDropper caption="Imagen" />
+                <ImageDropper caption="Imagen" subtitle={'Añade varias imágenes para que los compradores conozcan el producto'} />
 
                 <Input title={"Nombre del producto"}
                     type="text" name="product-name"
