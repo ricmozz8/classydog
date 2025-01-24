@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
@@ -53,6 +54,12 @@ class HandleInertiaRequests extends Middleware
                     });
                 })
             ],
+
+            'availableCurrencies' => Cache::remember('currencies', now()->addMonth(), function () {
+                return Product::currencies();
+            })
+
+
         ];
     }
 }

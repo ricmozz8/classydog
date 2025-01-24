@@ -1,7 +1,7 @@
 import { useDropzone } from "react-dropzone";
 import { useState } from "react";
 
-export default function ImageDropper({ centerText, caption, subtitle, ...params }) {
+export default function ImageDropper({ maxImages = 5, centerText, caption, subtitle, ...params }) {
 
     const [files, setFiles] = useState([]); // State to manage accepted files
 
@@ -9,7 +9,8 @@ export default function ImageDropper({ centerText, caption, subtitle, ...params 
         getRootProps,
         getInputProps,
         isDragActive,
-        isDragReject
+        isDragReject,
+        fileRejections,
     } = useDropzone({
         accept: {
             'image/jpeg': ['.jpeg'],
@@ -17,11 +18,13 @@ export default function ImageDropper({ centerText, caption, subtitle, ...params 
             'image/jpg': ['.jpg']
         },
         onDrop: (acceptedFiles) => {
+            if(files.length >= maxImages)
+                return null;
             updateDropper(acceptedFiles);
         },
-        maxFiles: 5,
-        multiple: true,
-        maxSize: 8 * 1024 * 1024 // this is 8MB
+        maxFiles: maxImages,
+        maxSize: 8 * 1024 * 1024 // this is 8MB,
+
     });
 
     const updateDropper = (newFiles) => {
@@ -62,12 +65,23 @@ export default function ImageDropper({ centerText, caption, subtitle, ...params 
 
             </div>
 
-            {isDragReject && (
-                <p className="text-xs text-red-500 my-2">No se pueden subir archivos con ese formato</p>
-            )}
+            {(isDragReject && fileRejections.length > maxImages) &&
+
+                (
+                    <p className="text-red-500 my-1 text-sm">Puedes subir hasta {maxImages} imágenes solamente.</p>
+                )
+
+            }
+
+            {
+                (isDragReject && fileRejections.length < maxImages) &&
+                (
+                    <p className="text-red-500 my-1 text-sm">Formato de archivo no permitido</p>
+                )
+            }
 
             {files.length > 0 && (
-                <div className="flex items-center gap-3 my-1 max-w-full overflow-x-scroll">
+                <div className="flex items-center gap-3 py-3 my-1 max-w-full overflow-x-scroll">
                     {files.map(file => (
                         <div key={file.name} className="flex-col">
 
