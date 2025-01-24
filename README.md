@@ -2,6 +2,7 @@
 <p align="center">
 <img src="./resources/assets/logotype/svg/classydog-geo-horizontal-white.svg" alt="Classydog Logo"
 style="width: 45%; margin: 0 auto; display: block;">
+
 </p>
 <br>
 
@@ -11,6 +12,10 @@ An app for **selling second hand items**. With direct connection between sellers
 <p align="center">
 <img src="./resources/assets/promotional/promo-wire-land.webp" alt="Classydog Logo"
 style="width: 170%;  margin: 0 auto; display: block;">
+<img src="./resources/assets/promotional/singleProductShowcase.png" alt="Classydog Logo"
+style="width: 170%;  margin: 0 auto; display: block;">
+</p>
+![alt text](image.png)
 </p>
 
 ## Requirements
